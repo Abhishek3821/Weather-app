@@ -1,0 +1,23 @@
+body{
+    background-image: url(./landscape-mountains-clouds-sky-trees-sunrise-5k-jg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+.box{
+    background-color: transparent;
+    /* border: 2px solid black; */
+    width: 30%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px ;
+    margin-left: 35%;
+}
+h3{
+    margin: 10px;
+}
+button{
+    margin-top: 10px;
+}

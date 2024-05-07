@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEATHER</title>
+    <link rel="stylesheet" href="./weather.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Weather</h1>
+        <h3>Enter City Name</h3>
+        <input type="text" id="city" placeholder="enter city name">
+        <h3>Enter Country Name</h3>
+        <input type="text" id="country" placeholder="enter country name">
+        <h3>Humidity</h3>
+        <input type="text" id="humidity">
+        <h3>Pressure</h3>
+        <input type="text" id="pressure">
+        <h3>Temperature</h3>
+        <input type="text" id="tem">
+        <h3>Wind Speed</h3>
+        <input type="text" id="wind">
+        <button>click me</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+        document.querySelector("button").addEventListener("click", () => {
+            let city = document.getElementById("city").value;
+            console.log(city)
+            let country = document.getElementById("country").value;
+            console.log(country)
+            let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country + "&APPID=a9cfdb29a716e26d71aebb273da499d6";
+            async function weather() {
+                let a = await axios.get(url);
+                let h = a.data.main.humidity;
+                let pre = a.data.main.pressure;
+                let t = a.data.main.temp;
+                let tem = t - 273.15;
+                let w = a.data.wind.speed;
+                document.getElementById("humidity").value = h;
+                document.getElementById("pressure").value = pre;
+                document.getElementById("tem").value = tem;
+                document.getElementById("wind").value = w;
+            }
+            weather();
+        })
+
+    </script>
+</body>
+
+</html>
